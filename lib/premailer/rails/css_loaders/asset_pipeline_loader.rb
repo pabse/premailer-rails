@@ -17,9 +17,9 @@ class Premailer
         end
 
         def file_name(url)
-          URI(url).path
-            .sub("#{::Rails.configuration.assets.prefix}/", '')
-            .sub(/-\h{32}\.css$/, '.css')
+          temp_path = URI(url).path
+          .sub("#{::Rails.configuration.assets.prefix}/", '')
+          .sub(/-\h{32}\.css$/, '.css').sub('/stylesheets/', '')
         end
       end
     end
